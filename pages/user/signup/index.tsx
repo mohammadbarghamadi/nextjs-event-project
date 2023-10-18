@@ -35,6 +35,10 @@ export default function SignUp() {
             
             if (success && resData) router.push('/user/signin');
 
+            else if (error || message || !success) {
+                console.log(error,success,message)
+            }
+
         } signUpAPI();
     }
 

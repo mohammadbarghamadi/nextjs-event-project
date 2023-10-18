@@ -1,19 +1,55 @@
+import { useEffect, useState } from "react"
 
-import { CountryModel } from "@/pages/events/create"
+interface StateModel {
+    name: string,
+    slug: string,
+    _id: string,
+    __v: string
+}
 
-export default function SelectCountry({ countries }: { countries: CountryModel[] }) {
+export default function SelectState(props: { countryId: string, setStateId: (value: string) => void }) {
 
-    function CountryHandler() {
-        return countries.map(item => {
+    const { countryId, setStateId } = props
+
+    const [states, setStates] = useState<StateModel[]>([])
+    const [disabled, setDisabled] = useState<boolean>(true)
+    const [disabledOption, setDisabledOption] = useState<boolean>(false)
+
+    useEffect(() => {
+
+        async function getStates() {
+            if (!countryId) return
+            const response = await fetch(`http://localhost:3030/api/location/state/liststate/${countryId}`, { method: "GET" })
+            const { success, error, message, data } = await response.json()
+
+            if (success && data) {
+                setStates(data)
+                setDisabled(false)
+            }
+            else if (!success || error || message) {
+                setStates([])
+                setDisabled(true)
+            }
+        }
+        if (countryId) getStates()
+    }, [countryId])
+
+    useEffect(() => {
+        setDisabledOption(true)
+    }, [states])
+
+    function statesHandler() {
+        return states.map(item => {
             return (
-                <option key={item._id} value={item.name}>{item.name}</option>
+                <option key={item._id} value={item._id}>{item.name}</option>
             )
         })
     }
 
     return (
-        <select>
-            {CountryHandler()}
+        <select id="state" disabled={disabled} onChange={e => setStateId(e.target.value)}>
+            <option value={""}>انتخاب کنید</option>
+            {statesHandler()}
         </select>
     )
 }

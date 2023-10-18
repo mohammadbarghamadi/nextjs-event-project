@@ -10,6 +10,7 @@ export default function AboutPage() {
         <div className="about-page">
             <div className="container">
                 <p>{accessToken}</p>
+                <p>{refreshToken}</p>
             </div>
         </div>
     )
