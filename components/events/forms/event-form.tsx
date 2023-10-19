@@ -29,13 +29,20 @@ export default function CreateEventForm() {
 
     function formHandler(event: FormEvent) {
         event.preventDefault()
+        
+        const newDate = date.split("-")
+        const newTime = time.split(":")
+        const [year, month, day, hour, minute] = newDate.concat(newTime).map(item => parseInt(item))
+        const fullDate = new Date(year, month, day, hour, minute)
+        const isoDate = fullDate.toISOString()
+        
         const data = {
             title,
             excerpt,
             description,
             image,
             video: video || undefined,
-            date: new Date(),
+            date: isoDate,
             duration: parseInt(duration),
             price: parseInt(price),
             location: {
@@ -44,7 +51,7 @@ export default function CreateEventForm() {
                 city: cityId,
                 address
             },
-            category:[category],
+            category: [category],
             featured
         }
 
@@ -53,7 +60,7 @@ export default function CreateEventForm() {
             const response = await fetch('http://localhost:3030/api/event/create', {
                 method: "POST",
                 headers: {
-                    'Content-Type':'application/json',
+                    'Content-Type': 'application/json',
                     "access-token": accessToken,
                     "refresh-token": refreshToken
                 },
@@ -65,7 +72,7 @@ export default function CreateEventForm() {
             if (success && responseData) {
                 console.log(responseData)
             } else if (!success || error || message) {
-                console.log(success,error,message)
+                console.log(success, error, message)
             }
 
         }
