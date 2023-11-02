@@ -19,7 +19,7 @@ interface SignInResponse {
 export default function SignIn() {
 
     const router = useRouter();
-    const {  isUserSignedIn, setAccessToken, setRefreshToken, setIsUserSignedIn } = useContext(AuthContext);
+    const { isUserSignedIn, setAccessToken, setRefreshToken, setIsUserSignedIn } = useContext(AuthContext);
 
     function formData(formData: SignInFormData) {
         async function signInApi() {
@@ -35,7 +35,9 @@ export default function SignIn() {
             if (success && data) {
                 setAccessToken(data.accessToken);
                 setRefreshToken(data.refreshToken);
-                setIsUserSignedIn(true)
+                localStorage.setItem("accessToken", data.accessToken);
+                localStorage.setItem("refreshToken", data.refreshToken);
+                setIsUserSignedIn(true);
             }
 
         } signInApi();

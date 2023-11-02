@@ -1,0 +1,11 @@
+.logo {
+    flex-basis: 200px;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 800;
+    background: -webkit-linear-gradient(#222831, #00ADB5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

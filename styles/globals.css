@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+:root {
+    --bg-color-00: #222831;
+    --bg-color-01: #393E46;
+    --bg-color-02: #00ADB5;
+    --bg-color-03: #EEEEEE;
+    --bg-color-04: #FFFFFF;
+
+    --tx-color-00: #333333;
+    --tx-color-01: #00ADB5;
+    --tx-color-02: #555555;
+    --tx-color-03: #777777;
+    --tx-color-04: #FFFFFF;
+
+    --tx-size-00: 16px;
+    --tx-size-01: 18px;
+    --tx-size-02: 20px;
+    --tx-size-03: 22px;
+    --tx-size-04: 24px;
+    --tx-size-05: 26px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+div,
+blockquote,
+li,
+th,
+td,
+table,
+input,
+textarea,
+select,
+button,
+option {
+    font-family: "iranyekan";
+    color: var(--tx-color-00);
+    line-height: 2;
+    text-decoration: none;
+}
+
+input,
+textarea,
+select {
+    border: none;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: var(--bg-color-03);
+    width: 100%;
+}
+
+button,
+.btn {
+    border: none;
+    background-color: var(--bg-color-01);
+    color: var(--tx-color-04);
+    padding: 8px 20px;
+    margin: 10px 0;
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--bg-color-02);
+    color: var(--tx-color-04);
+}

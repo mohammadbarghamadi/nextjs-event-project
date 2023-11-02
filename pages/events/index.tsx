@@ -26,7 +26,7 @@ export interface EventModel {
     },
     category: [{
         name: string,
-        url:string,
+        url: string,
     }],
     featured: boolean,
     owner: {
@@ -41,10 +41,12 @@ export interface EventModel {
 export default function EventsPage(props: { events: EventModel[] }) {
 
     const { events } = props
-    
+
     return (
         <div className="events-page">
-            <EventList events={events} />
+            <div className="container">
+                <EventList events={events} />
+            </div>
         </div>
     )
 }

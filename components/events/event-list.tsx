@@ -1,6 +1,6 @@
 
 import { EventModel } from "@/pages/events"
-import EventDetail from "./event-detail"
+import EventBox from "./event-summery"
 
 export default function EventList(props: { events: EventModel[] }) {
 
@@ -8,7 +8,7 @@ export default function EventList(props: { events: EventModel[] }) {
 
     function eventHandler() {
         return events.map(item => {
-            return (<EventDetail key={item._id} event={item}/>)
+            return (<EventBox key={item._id} event={item}/>)
         })
     }
 

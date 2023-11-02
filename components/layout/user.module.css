@@ -1,0 +1,30 @@
+.signInUp {
+    display: flex;
+    flex-basis: 20%;
+    justify-content: flex-end;
+}
+
+.signupBtn {
+    padding: 4px 10px;
+    background-color: var(--bg-color-02);
+    color: var(--tx-color-04);
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.signinBtn {
+    padding: 4px 10px;
+    background-color: var(--bg-color-01);
+    color: var(--tx-color-04);
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.signinBtn:hover,
+.signupBtn:hover
+{
+    background-color: var(--bg-color-00);
+    /* color: var(--tx-color-0); */
+}

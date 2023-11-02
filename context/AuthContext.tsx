@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 
 
 const AuthContext = createContext({
@@ -15,6 +15,13 @@ export const AuthProvider = function ({ children }: { children: ReactNode }) {
     const [accessToken, setAccessToken] = useState("")
     const [refreshToken, setRefreshToken] = useState("")
     const [isUserSignedIn, setIsUserSignedIn] = useState(false)
+
+    useEffect(() => {
+        const refToken = localStorage.getItem("refreshToken");
+        if (refToken) {
+            setRefreshToken(refToken)
+        }
+    })
 
     const auth = {
         accessToken,

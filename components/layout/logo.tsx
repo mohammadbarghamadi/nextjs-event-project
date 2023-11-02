@@ -1,12 +1,13 @@
-import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LogoCSSClass from "./logo.module.css";
+import Link from "next/link";
+
 
 export default function Logo() {
     return (
-        <div className="logo">
+        <div className={LogoCSSClass.logo}>
             <Link href={'/'}>
-                <picture>
-                    <img src="" alt="" />
-                </picture>
+                رویداد سیستم
             </Link>
         </div>
     )
