@@ -7,9 +7,10 @@
 
 :root {
     --bg-color-00: #222831;
-    --bg-color-01: #393E46;
+    --bg-color-01: #f0774d;
     --bg-color-02: #00ADB5;
-    --bg-color-03: #EEEEEE;
+    --bg-color-03: #f47fae;
+    --bg-color-04: #EEEEEE;
     --bg-color-04: #FFFFFF;
 
     --tx-color-00: #333333;
@@ -65,6 +66,7 @@ select {
     font-size: 16px;
     background-color: var(--bg-color-03);
     width: 100%;
+    outline: none;
 }
 
 button,

@@ -1,0 +1,48 @@
+.heroSection {
+    height: 50vh;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content,
+.image {
+    flex-basis: 50%;
+}
+
+.heroSection h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--tx-color-00);
+}
+
+.heroSection p {
+    margin: 44px 0 20px;
+    color: var(--tx-color-03);
+}
+
+.heroSection a {
+    background-color: #f0774d;
+    cursor: pointer;
+    display: inline-block;
+    color: var(--tx-color-04);
+    font-size: var(--tx-size-00);
+    width: 200px;
+    text-align: center;
+    padding: 8px;
+    transition: 0.2s;
+}
+
+.heroSection a:hover {
+    background-color: var(--bg-color-02);
+}
+
+.image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 328px;
+    color: var(--bg-color-00);
+}

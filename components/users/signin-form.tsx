@@ -34,7 +34,7 @@ export default function SignInForm({ formData }: { formData: FormData }) {
                     type="text"
                     name="username"
                     id="username"
-                    placeholder="Email / Phone"
+                    placeholder="ایمیل یا موبایل"
                     required
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -46,7 +46,7 @@ export default function SignInForm({ formData }: { formData: FormData }) {
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Password"
+                    placeholder="رمز عبور"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

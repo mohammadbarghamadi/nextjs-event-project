@@ -1,0 +1,23 @@
+.search {
+
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+}
+
+.inputGroup input {
+    background-color: var(--bg-color-04);
+    border: 1px solid var(--bg-color-03);
+    /* width: 380px; */
+    height: 54px;
+}
+
+.inputGroup button {
+    background-color: var(--bg-color-02);
+    width: 240px;
+    height: 54px;
+    padding: 10px;
+}

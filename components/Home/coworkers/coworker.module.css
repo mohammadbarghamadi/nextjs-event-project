@@ -1,0 +1,19 @@
+.iconContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+.iconBox {
+    cursor: pointer;
+    color: var(--bg-color-01);
+    font-size: 62px;
+    transition: 0.2s;
+    opacity: 0.3;
+    filter: grayscale(1);
+}
+
+.iconBox:hover {
+    scale: 1.2;
+    opacity: 1;
+    filter: grayscale(0);
+}

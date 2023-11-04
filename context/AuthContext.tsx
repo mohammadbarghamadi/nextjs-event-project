@@ -20,8 +20,32 @@ export const AuthProvider = function ({ children }: { children: ReactNode }) {
         const refToken = localStorage.getItem("refreshToken");
         if (refToken) {
             setRefreshToken(refToken)
+            
+            // getUser()
+        }
+        async function getUser() {
+
+            const response = await fetch('http://localhost:3030/api/profile', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    accessToken: "",
+                    refreshToken: refreshToken
+                }
+            })
+
+            const { success, error, message, data } = await response.json()
+
+            if (success && data) {
+                console.log(data)
+                return data
+            }
+
+            return false
         }
     })
+
+
 
     const auth = {
         accessToken,

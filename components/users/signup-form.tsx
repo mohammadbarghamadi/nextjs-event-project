@@ -47,7 +47,7 @@ export default function SignUpForm({ formData }: { formData: FormData }) {
                     type="text"
                     id="fname"
                     name="fname"
-                    placeholder="Barghamadi"
+                    placeholder="محمد برغمدی"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -61,7 +61,7 @@ export default function SignUpForm({ formData }: { formData: FormData }) {
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="mb.merndev@gmail.com"
+                    placeholder="آدرس ایمیل"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -75,7 +75,7 @@ export default function SignUpForm({ formData }: { formData: FormData }) {
                     type="number"
                     id="phone"
                     name="phone"
-                    placeholder="09304551004"
+                    placeholder="شماره موبایل"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
@@ -90,6 +90,7 @@ export default function SignUpForm({ formData }: { formData: FormData }) {
                         type="password"
                         id="password"
                         name="password"
+                        placeholder="رمز عبور"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
@@ -102,6 +103,7 @@ export default function SignUpForm({ formData }: { formData: FormData }) {
                         type="password"
                         id="confirm"
                         name="confirm"
+                        placeholder="تکرار رمز عبور"
                         value={confirm}
                         onChange={(e) => setConfirm(e.target.value)}
                         required
