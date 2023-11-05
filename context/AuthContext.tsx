@@ -37,7 +37,6 @@ export const AuthProvider = function ({ children }: { children: ReactNode }) {
             const { success, error, message, data } = await response.json()
 
             if (success && data) {
-                console.log(data)
                 return data
             }
 

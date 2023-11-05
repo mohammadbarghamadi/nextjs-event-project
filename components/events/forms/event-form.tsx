@@ -46,17 +46,16 @@ export default function CreateEventForm() {
             duration: parseInt(duration),
             price: parseInt(price),
             location: {
-                country: countryId,
-                state: stateId,
-                city: cityId,
+                country: countryId || undefined,
+                state: stateId || undefined,
+                city: cityId || undefined,
                 address
             },
-            category: [category],
+            category: [],
             featured
         }
 
         async function createEvent() {
-            console.log(data)
             const response = await fetch('http://localhost:3030/api/event/create', {
                 method: "POST",
                 headers: {
@@ -70,9 +69,7 @@ export default function CreateEventForm() {
             const { success, error, message, data: responseData } = await response.json()
 
             if (success && responseData) {
-                console.log(responseData)
             } else if (!success || error || message) {
-                console.log(success, error, message)
             }
 
         }

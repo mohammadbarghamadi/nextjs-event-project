@@ -10,8 +10,8 @@
     --bg-color-01: #f0774d;
     --bg-color-02: #00ADB5;
     --bg-color-03: #f47fae;
-    --bg-color-04: #EEEEEE;
-    --bg-color-04: #FFFFFF;
+    --bg-color-04: #F7F7F7;
+    --bg-color-05: #FFFFFF;
 
     --tx-color-00: #333333;
     --tx-color-01: #00ADB5;
@@ -57,6 +57,10 @@ option {
     text-decoration: none;
 }
 
+img {
+    width: 100%;
+}
+
 input,
 textarea,
 select {
@@ -64,7 +68,7 @@ select {
     padding: 10px;
     font-weight: 300;
     font-size: 16px;
-    background-color: var(--bg-color-03);
+    background-color: var(--bg-color-04);
     width: 100%;
     outline: none;
 }

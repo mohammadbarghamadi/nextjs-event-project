@@ -1,3 +1,4 @@
+import eventCSSClass from "./event.module.css"
 import { EventModel } from "@/pages/events";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,9 +14,9 @@ import Link from "next/link";
 
 export default function EventBox({ event }: { event: EventModel }) {
     const {
-         _id, category, createdAt, date, duration, featured
+        _id, category, createdAt, date, duration, featured
         , image, owner, price, title, excerpt
-    } = event 
+    } = event
 
     function categoryHandler() {
         return category.map(item => {
@@ -26,43 +27,38 @@ export default function EventBox({ event }: { event: EventModel }) {
     }
 
     return (
-        <div key={_id} className="event-detail">
+        <div key={_id} className={eventCSSClass.eventSummery}>
             <div className="image-box">
                 <picture>
-                    
-                    <img src={`/${image.filepath}`} alt="" />
+                    <Link href={`/events/${_id}`}>
+                        <img src={`/${image.filepath}`} alt="" />
+                    </Link>
                 </picture>
             </div>
-            <div className="content-box">
+            <div className={eventCSSClass.contentBox}>
                 <div className="event-title">
-                    <h1>{title}</h1>
-                </div>
-
-                <div className="event-meta">
-                    <div className="author">
-                        <FontAwesomeIcon icon={faAt} />
-                        مالک:
-                        {owner.name}
-                    </div>
-                    <div className="date">
-                        <FontAwesomeIcon icon={faCalendar} />
-                        تاریخ اجرا:
-                        {(new Date(date)).toLocaleString()}
-                    </div>
-                    <div className="duration">
-                        <FontAwesomeIcon icon={faClock} />
-                        مدت زمان:
-                        {duration}
-                    </div>
-                    <div className="category">
-                        <FontAwesomeIcon icon={faTags} />
-                        دسته:
-                        {categoryHandler()}
-                    </div>
+                    <Link href={`/events/${_id}`}>
+                        <h3>{title}</h3>
+                    </Link>
                 </div>
 
                 <div className="event-detail">
                     <p>{excerpt}</p>
+                </div>
+
+                <div className="event-meta">
+                    <div className="author">
+                        <FontAwesomeIcon icon={faAt} /> مالک: {owner.name}
+                    </div>
+                    <div className="date">
+                        <FontAwesomeIcon icon={faCalendar} /> تاریخ: {(new Date(date)).toLocaleString()}
+                    </div>
+                    <div className="duration">
+                        <FontAwesomeIcon icon={faClock} /> زمان: {duration} دقیقه
+                    </div>
+                    <div className="category">
+                        <FontAwesomeIcon icon={faTags} />  دسته: {categoryHandler()}
+                    </div>
                 </div>
 
             </div>

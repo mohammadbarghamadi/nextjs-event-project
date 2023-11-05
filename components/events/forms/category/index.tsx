@@ -23,7 +23,6 @@ export default function SelectCategory(props: { setCategoryId: (value: string) =
         if (success && data) {
             setCategories(data)
         } else if (!success || error || message) {
-            console.log(success, error, message)
         }
     }
 

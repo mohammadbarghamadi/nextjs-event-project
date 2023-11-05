@@ -19,14 +19,12 @@ export default function ImageUpload(props: { setImageId: (value: string) => void
             fileData.append(files[0].name, files[0])
             setImage(fileData)
             setReadyToUpload(true)
-            console.log("Ready to Upload")
         }
     }
 
     function initialUpload() {
         if (image && readyToUpload) {
             uploadImage(image)
-            console.log("File Uploaded")
         }
     }
 
@@ -48,7 +46,6 @@ export default function ImageUpload(props: { setImageId: (value: string) => void
             setImagePath(data[0].filepath)
             setIsImageUploaded(true)
         } else if (!success || error || message) {
-            console.log(success, error, message)
         }
     }
 

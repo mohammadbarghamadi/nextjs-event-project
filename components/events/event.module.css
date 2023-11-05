@@ -1,0 +1,25 @@
+.eventSummery {
+    background-color: var(--bg-color-05);
+}
+
+.contentBox {
+    padding: 10px 20px;
+}
+
+.contentBox h3 {
+    font-size: var(--tx-size-02);
+    color: var(--tx-color-00);
+}
+
+.eventMeta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.eventMeta div {
+    color: var(--tx-color-03);
+    flex-basis: 50%;
+}
+
+.imageBox {}
