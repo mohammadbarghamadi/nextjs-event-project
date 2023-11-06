@@ -8,7 +8,7 @@
     color: var(--bg-color-01);
     font-size: 62px;
     transition: 0.2s;
-    opacity: 0.3;
+    opacity: 0.6;
     filter: grayscale(1);
 }
 

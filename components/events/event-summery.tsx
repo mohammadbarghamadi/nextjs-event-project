@@ -26,6 +26,16 @@ export default function EventBox({ event }: { event: EventModel }) {
         })
     }
 
+    function featuredHandler() {
+        if (event.featured) {
+            return (
+                <div style={{ position: 'absolute', width: '100px', textAlign: 'center', left: '0px', top: '0px', background: '#00ADB5' }}>
+                    <span style={{ color: '#fff' }}>ویژه</span>
+                </div>
+            )
+        }
+    }
+
     return (
         <div key={_id} className={eventCSSClass.eventSummery}>
             <div className="image-box">
@@ -34,6 +44,7 @@ export default function EventBox({ event }: { event: EventModel }) {
                         <img src={`/${image.filepath}`} alt="" />
                     </Link>
                 </picture>
+                {featuredHandler()}
             </div>
             <div className={eventCSSClass.contentBox}>
                 <div className="event-title">

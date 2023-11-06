@@ -1,4 +1,36 @@
-.eventDetail {
-
+.event {
+    padding: 80px 0;
 }
 
+.intro {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.eventImage {
+    flex-basis: 60%;
+}
+
+.eventImage picture img {
+    width: 800px;
+}
+
+.info {
+    flex-basis: 40%;
+}
+
+.infoContainer {
+    padding: 20px;
+    background-color: var(--bg-color-04);
+    height: 440px;
+}
+
+.infoContainer div {
+    padding: 10px 0;
+    color: var(--tx-color-02);
+}
+
+.eventContent {
+    padding: 30px 0;
+}

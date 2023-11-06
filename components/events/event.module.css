@@ -1,5 +1,6 @@
 .eventSummery {
     background-color: var(--bg-color-05);
+    position: relative;
 }
 
 .contentBox {

@@ -1,6 +1,7 @@
 
 import { EventModel } from "@/pages/events"
 import EventBox from "./event-summery"
+import EventCssClass from "./eventList.module.css"
 
 export default function EventList(props: { events: EventModel[] }) {
 
@@ -13,7 +14,7 @@ export default function EventList(props: { events: EventModel[] }) {
     }
 
     return (
-        <div className="list-event-grid">
+        <div className={EventCssClass.eventGrid}>
             {eventHandler()}
         </div>
     )

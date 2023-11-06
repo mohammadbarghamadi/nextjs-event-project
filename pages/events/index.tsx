@@ -1,4 +1,5 @@
 import EventList from "@/components/events/event-list"
+import EventCssClass from "./index.module.css"
 
 export interface EventModel {
     title: string,
@@ -43,7 +44,7 @@ export default function EventsPage(props: { events: EventModel[] }) {
     const { events } = props
 
     return (
-        <div className="events-page">
+        <div className={EventCssClass.eventPage}>
             <div className="container">
                 <EventList events={events} />
             </div>

@@ -5,8 +5,8 @@
 }
 
 .signupBtn {
-    padding: 4px 10px;
-    background-color: var(--bg-color-02);
+    padding: 8px 20px;
+    background-color: var(--bg-color-00);
     color: var(--tx-color-04);
     font-weight: 400;
     font-size: 15px;
@@ -14,8 +14,8 @@
 }
 
 .signinBtn {
-    padding: 4px 10px;
-    background-color: var(--bg-color-01);
+    padding: 8px 20px;
+    background-color: var(--bg-color-02);
     color: var(--tx-color-04);
     font-weight: 400;
     font-size: 15px;
@@ -23,8 +23,7 @@
 }
 
 .signinBtn:hover,
-.signupBtn:hover
-{
+.signupBtn:hover {
     background-color: var(--bg-color-00);
     /* color: var(--tx-color-0); */
 }
