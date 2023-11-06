@@ -11,53 +11,43 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-export default function EventDetail({ event }: { event: EventModel }) {
-    const {
-        __v, _id, category, createdAt, date, description, duration, featured
-        , image, owner, price, title, updatedAt, excerpt, location, video
-    } = event 
+export default function EventDetail(props: { event: EventModel }) {
+    const { event } = props
 
-    function categoryHandler() {
-        return category.map(item => {
-            return (
-                <span key={item.url}><Link href={`/events/cats/${item.url}`}>{item.name}</Link></span>
-            )
-        })
-    }
+    console.log(event)
+
+    const runningDate = (new Date(event.date)).toLocaleDateString()
+    const runningTime = (new Date(event.date)).toLocaleTimeString()
 
     return (
-        <div key={_id} className="event-detail">
-            <div className="image-box">
-                <picture>
-                    <img src={`/${image.filepath}`} alt="" />
-                </picture>
-            </div>
-            <div className="content-box">
-                <div className="event-title">
-                    <h1>{title}</h1>
+        <div className="">
+            <div className="container">
+
+                <div className="intro">
+                    <div className="event-image">
+                        <picture>
+                            <img src={"/" + event.image.filepath} alt={event.title} />
+                        </picture>
+                    </div>
                 </div>
 
-                <div className="event-meta">
-                    <div className="author">
-                        <FontAwesomeIcon icon={faAt} />:
-                        {owner.name}
-                    </div>
+                <div className="running-date">
                     <div className="date">
-                        <FontAwesomeIcon icon={faCalendar} />:
-                        {(new Date(date)).toLocaleString()}
+                        <FontAwesomeIcon icon={faCalendar} /> تاریخ برگذاری: <span>{runningDate}</span>
                     </div>
-                    <div className="duration">
-                        <FontAwesomeIcon icon={faClock} />:
-                        {duration}
-                    </div>
-                    <div className="category">
-                        <FontAwesomeIcon icon={faTags} />:
-                        {categoryHandler()}
+                    <div className="time">
+                        <FontAwesomeIcon icon={faClock} /> ساعت شروع: <span>{runningTime}</span>
                     </div>
                 </div>
 
-                <div className="event-detail">
-                    <p>{description}</p>
+                <div className="time">
+                    <FontAwesomeIcon icon={faHourglassStart} /> مدت زمان رویداد: <span>{event.duration}</span> <time>دقیقه</time>
+                </div>
+
+
+                <div className="content">
+                    <h1>{event.title}</h1>
+                    <p>{event.description}</p>
                 </div>
 
             </div>
