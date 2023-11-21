@@ -1,5 +1,6 @@
 .event {
     padding: 80px 0;
+    background-color: var(--bg-color-04);
 }
 
 .intro {
@@ -18,12 +19,35 @@
 
 .info {
     flex-basis: 40%;
+    position: relative;
+}
+
+.featuredEvent {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 440px;
+    box-shadow: 2px 0 2px var(--bg-color-02);
+    width: 100%;
+}
+
+.featuredFlag {
+    color: var(--tx-color-01);
+    width: 30px;
+    font-size: var(--tx-size-04);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
 }
 
 .infoContainer {
     padding: 20px;
-    background-color: var(--bg-color-04);
+    background-color: var(--bg-color-05);
     height: 440px;
+    position: relative;
+    z-index: 3;
 }
 
 .infoContainer div {

@@ -3,13 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCalendar,
     faClock,
-    faAt,
-    faMapLocationDot,
     faHourglassStart,
     faTags,
     faDollar,
     faUser,
-    faLocationDot
+    faLocationDot,
+    faFlag
 
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -17,8 +16,6 @@ import EventDetailCSSClass from "./eventDetail.module.css"
 
 export default function EventDetail(props: { event: EventModel }) {
     const { event } = props
-
-    console.log(event)
 
     const runningDate = (new Date(event.date)).toLocaleDateString()
     const runningTime = (new Date(event.date)).toLocaleTimeString()
@@ -50,7 +47,18 @@ export default function EventDetail(props: { event: EventModel }) {
                 </div>
             )
         }
-        return null
+    }
+
+    function isItFeatured() {
+        if (event.featured) {
+            return (
+                <div className={EventDetailCSSClass.featuredEvent}>
+                    <div className={EventDetailCSSClass.featuredFlag}>
+                        <FontAwesomeIcon icon={faFlag} />
+                    </div>
+                </div>
+            )
+        }
     }
 
     return (
@@ -63,9 +71,11 @@ export default function EventDetail(props: { event: EventModel }) {
                             <img src={"/" + event.image.filepath} alt={event.title} />
                         </picture>
                     </div>
-                    <div className={EventDetailCSSClass.info}>
+                    <div className={`${EventDetailCSSClass.info}`}>
 
-                        <div className={EventDetailCSSClass.infoContainer}>
+                        {isItFeatured()}
+
+                        <div className={`${EventDetailCSSClass.infoContainer}`}>
                             <div className="date">
                                 <FontAwesomeIcon icon={faCalendar} color="#00ADB5" />
                                 <span style={{ color: '#222', fontWeight: 700 }}> تاریخ برگذاری: </span>
@@ -103,6 +113,7 @@ export default function EventDetail(props: { event: EventModel }) {
                             </div>
 
                             {locationHandler()}
+
                         </div>
 
                     </div>

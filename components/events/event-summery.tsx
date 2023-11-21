@@ -5,6 +5,7 @@ import {
     faCalendar,
     faClock,
     faAt,
+    faCertificate,
     faMapLocationDot,
     faHourglassStart,
     faTags,
@@ -30,7 +31,7 @@ export default function EventBox({ event }: { event: EventModel }) {
         if (event.featured) {
             return (
                 <div style={{ position: 'absolute', width: '100px', textAlign: 'center', left: '0px', top: '0px', background: '#00ADB5' }}>
-                    <span style={{ color: '#fff' }}>ویژه</span>
+                    <FontAwesomeIcon icon={faCertificate} color="white"/> <span style={{ color: '#fff' }}>ویژه</span>
                 </div>
             )
         }

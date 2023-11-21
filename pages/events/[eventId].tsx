@@ -35,7 +35,8 @@ export const getStaticProps: GetStaticProps = async function (contex) {
         }
     } else {
         return {
-            props: {}
+            props: {},
+            revalidate: 600 // seconds to regenerate pages
         }
     }
 
@@ -49,7 +50,7 @@ export async function getStaticPaths(contex: any) {
 
     return {
         paths,
-        fallback: true
+        fallback: 'blocking' // true | false | 'blocking'
     }
 
 }
