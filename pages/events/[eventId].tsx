@@ -31,12 +31,12 @@ export const getStaticProps: GetStaticProps = async function (contex) {
 
     if (success && data) {
         return {
-            props: { event: data }
+            props: { event: data },
+            revalidate: 600 // seconds to regenerate pages
         }
     } else {
         return {
-            props: {},
-            revalidate: 600 // seconds to regenerate pages
+            notFound: true
         }
     }
 

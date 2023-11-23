@@ -1,0 +1,14 @@
+.slugPage {
+    padding: 50px 0;
+    background-color: var(--bg-color-04);
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.search {
+    flex-basis: 500px;
+}

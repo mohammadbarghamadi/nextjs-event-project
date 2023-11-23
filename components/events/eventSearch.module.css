@@ -1,0 +1,19 @@
+.searchInput {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchInput input {
+    background-color: var(--bg-color-05);
+    border: 1px solid var(--bg-color-01);
+    flex-basis: 350px;
+}
+
+.searchInput button {
+    margin: 0;
+    flex-basis: 200px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid var(--bg-color-01);
+}
+
