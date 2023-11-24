@@ -11,7 +11,7 @@ export default function EventFilter() {
     }, [order])
 
     return (
-        <div className="select">
+        <div className={FilterCSS.select}>
             <select name="sort" id="sort" defaultValue={"Default"} onChange={e => setOrder(e.target.value)}>
                 <option value="Default" disabled={true}>نمایش بر اساس</option>
                 <option value="date-asc">تاریخ صعودی</option>

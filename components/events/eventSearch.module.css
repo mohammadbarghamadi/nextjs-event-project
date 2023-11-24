@@ -4,16 +4,29 @@
 }
 
 .searchInput input {
-    background-color: var(--bg-color-05);
-    border: 1px solid var(--bg-color-01);
+    background-color: var(--bg-color-04);
+    border: 1px solid var(--bg-color-02);
     flex-basis: 350px;
+}
+
+.searchInput input:focus {
+    border: 1px solid var(--bg-color-00);
+}
+
+.searchInput input:focus button {
+    background-color: var(--bg-color-00);
 }
 
 .searchInput button {
     margin: 0;
+    background-color: var(--bg-color-02);
     flex-basis: 200px;
     cursor: pointer;
     transition: 0.2s;
-    border: 1px solid var(--bg-color-01);
+    border: 1px solid var(--bg-color-02);
 }
 
+.searchInput button:hover {
+    background-color: var(--bg-color-00);
+    border: 1px solid var(--bg-color-00);
+}
