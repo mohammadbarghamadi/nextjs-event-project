@@ -1,13 +1,18 @@
 import { FormEvent, useEffect, useState } from "react"
 import FilterCSS from "./eventFilter.module.css"
+import { OrderInt } from "@/pages/events/[...slug]"
 
+export default function EventFilter(props: { setOrder: (value: OrderInt) => void }) {
 
-export default function EventFilter() {
-
-    const [order, setOrder] = useState("")
+    const [order, setOrder] = useState<string>()
 
     useEffect(() => {
-        console.log(order)
+        if (order === "date-asc") props.setOrder({ date: "asc" })
+        else if (order === "date-dsc") props.setOrder({ date: "dsc" })
+        else if (order === "price-asc") props.setOrder({ price: "asc" })
+        else if (order === "price-dsc") props.setOrder({ price: "dsc" })
+        else props.setOrder({ createdAt: "asc" })
+
     }, [order])
 
     return (

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import SignUpForm from "@/components/users/signup-form"
 import { useRouter } from "next/router"
+import Head from "next/head"
 
 export interface SignUpFormData {
     name: string,
@@ -32,7 +33,7 @@ export default function SignUp() {
             });
             const jsonResponse: JSONResponse = await response.json();
             const { error, message, data: resData, success } = jsonResponse;
-            
+
             if (success && resData) router.push('/user/signin');
 
             else if (error || message || !success) {
@@ -43,6 +44,10 @@ export default function SignUp() {
 
     return (
         <div className="signup-page">
+            <Head>
+                <title>ثبت نام در رویداد سیستم</title>
+                <meta name="description" content="برای ثبت نام در رویداد سیستم میتوانید به واسطه وارد کردن نام کاربری و رمز عبور در این صفحه وارد شوید." />
+            </Head>
             <div className="container">
                 <SignUpForm formData={formData} />
             </div>

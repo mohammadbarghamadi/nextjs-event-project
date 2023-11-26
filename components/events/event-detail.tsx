@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import EventDetailCSSClass from "./eventDetail.module.css"
+import Image from "next/image";
 
 export default function EventDetail(props: { event: EventModel }) {
     const { event } = props
@@ -68,7 +69,8 @@ export default function EventDetail(props: { event: EventModel }) {
                 <div className={EventDetailCSSClass.intro}>
                     <div className={EventDetailCSSClass.eventImage}>
                         <picture>
-                            <img src={"/" + event.image.filepath} alt={event.title} />
+                            <Image src={"/" + event.image.filepath} alt={event.title} width={800} height={440} />
+                            {/* <img src={"/" + event.image.filepath} alt={event.title} /> */}
                         </picture>
                     </div>
                     <div className={`${EventDetailCSSClass.info}`}>

@@ -1,5 +1,11 @@
+import { useState, useEffect } from "react"
 import EventList from "@/components/events/event-list"
 import EventCssClass from "./index.module.css"
+import SlugCSS from "./slug.module.css"
+import SearchEvent from "@/components/events/event-search"
+import EventFilter from "@/components/events/event-filter"
+import { OrderInt } from "./[...slug]"
+import Head from "next/head"
 
 export interface EventModel {
     title: string,
@@ -41,11 +47,40 @@ export interface EventModel {
 
 export default function EventsPage(props: { events: EventModel[] }) {
 
-    const { events } = props
+    const [searchString, setSearchString] = useState<string>()
+    const [order, setOrder] = useState<OrderInt>()
+    const [events, setEvents] = useState<EventModel[]>(props.events)
+
+    useEffect(() => {
+        const getEvents = async () => {
+
+            const url = "http://localhost:3030/api/event/list?"
+            const keyphrase = searchString ? `keyphrase=${searchString}` : ""
+            const dateOrder = order?.date ? `&date=${order.date}` : ""
+            const priceOrder = order?.price ? `&price=${order.price}` : ""
+
+            const response = await fetch(`${url}${keyphrase}${dateOrder}${priceOrder}`, { method: "GET", headers: { "Content-Type": "application/json" } })
+            const { success, error, message, data } = await response.json()
+
+            if (success && data) {
+                setEvents(data)
+            }
+        }
+
+        getEvents()
+    }, [searchString, order])
 
     return (
         <div className={EventCssClass.eventPage}>
+            <Head>
+                <title>کلیه رویدادها - رویداد سیستم</title>
+                <meta name="description" content="برای مطلع شدن و بررسی همه رویدادها به این بخش مراجعه کنید تا کلیه رویدادهای ثبت شده در سایت را بررسی کنید" />
+            </Head>
             <div className="container">
+                <div className={SlugCSS.filter}>
+                    <div className={SlugCSS.search}><SearchEvent setString={setSearchString} /></div>
+                    <EventFilter setOrder={setOrder} />
+                </div>
                 <EventList events={events} />
             </div>
         </div>

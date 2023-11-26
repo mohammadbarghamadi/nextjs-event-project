@@ -2,6 +2,7 @@ import SignInForm from "@/components/users/signin-form";
 import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export interface SignInFormData {
     email: string,
@@ -47,6 +48,10 @@ export default function SignIn() {
 
     return (
         <div className="signin-page">
+            <Head>
+                <title>ورود به رویداد سیستم</title>
+                <meta name="description" content="برای وارد شدن به رویداد سیستم میتوانید به واسطه وارد کردن نام کاربری و رمز عبور در این صفحه وارد شوید." />
+            </Head>
             <div className="container">
                 <SignInForm formData={formData} />
             </div>

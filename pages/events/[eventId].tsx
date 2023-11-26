@@ -1,11 +1,16 @@
 import { EventModel } from "."
 import { GetStaticProps, GetStaticPaths } from "next"
 import EventDetail from "@/components/events/event-detail"
+import Head from "next/head"
 
 export default function SingleEventPage(props: { event: EventModel }) {
     const { event } = props
     return (
         <div className="">
+            <Head>
+                <title>{event.title}</title>
+                <meta name="description" content={event.excerpt} />
+            </Head>
             <EventDetail event={event}/>
         </div>
     )

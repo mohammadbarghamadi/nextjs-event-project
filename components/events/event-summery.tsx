@@ -12,6 +12,7 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function EventBox({ event }: { event: EventModel }) {
     const {
@@ -42,7 +43,7 @@ export default function EventBox({ event }: { event: EventModel }) {
             <div className="image-box">
                 <picture>
                     <Link href={`/events/${_id}`}>
-                        <img src={`/${image.filepath}`} alt="" />
+                        <Image src={`/${image.filepath}`} alt="" width={500} height={280}/>
                     </Link>
                 </picture>
                 {featuredHandler()}

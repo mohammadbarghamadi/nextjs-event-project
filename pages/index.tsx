@@ -2,11 +2,16 @@ import HeroSection from "@/components/Home/hero"
 import CoWorker from "@/components/Home/coworkers"
 import EventList from "@/components/Home/events"
 import { EventModel } from "./events"
+import Head from "next/head"
 
 export default function HomePage(props: { events: EventModel[] }) {
   const { events } = props
   return (
     <div className="home-page">
+      <Head>
+        <title>رویداد سیستم - مدیریت آنلاین رویدادها</title>
+        <meta name="description" content="با رویداد سیستم به وبینار ها و سمینارهای مختلف دسترسی داشته باشید و رویدادهای خود را به سادگی ایجاد و مدیریت کنید" />
+      </Head>
       <div className="container">
         <HeroSection />
         <CoWorker />
