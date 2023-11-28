@@ -1,0 +1,39 @@
+.footer {
+    background-color: var(--bg-color-00);
+    padding: 40px 0;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block {
+    flex-basis: 49%;
+    width: 200px;
+    height: 150px;
+    background-color: var(--bg-color-04);
+}
+
+.block img {
+    object-fit: contain;
+}
+
+.footer :is(p,h3) {
+    color: var(--tx-color-04);
+    margin: 5px 0;
+}
+
+.subscribeInput {
+    margin: 15px 0;
+}
+
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+}
