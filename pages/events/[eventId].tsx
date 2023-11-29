@@ -3,9 +3,12 @@ import { GetStaticProps, GetStaticPaths } from "next"
 import EventDetail from "@/components/events/event-detail"
 import Head from "next/head"
 import EventComment from "@/components/comment"
+import CommentList from "@/components/comment/comment-list"
+import { getComments } from "../api/comment/list"
+import { CommentModel } from "../api/comment"
 
-export default function SingleEventPage(props: { event: EventModel }) {
-    const { event } = props
+export default function SingleEventPage(props: { event: EventModel, comments: CommentModel[] }) {
+    const { event, comments } = props
     return (
         <div className="">
             <Head>
@@ -13,7 +16,8 @@ export default function SingleEventPage(props: { event: EventModel }) {
                 <meta name="description" content={event.excerpt} />
             </Head>
             <EventDetail event={event} />
-            <EventComment />
+            <EventComment commentId={event._id} />
+            <CommentList comments={comments} />
         </div>
     )
 }
@@ -29,11 +33,19 @@ const getEvents = async function () {
 
 export const getStaticProps: GetStaticProps = async function (contex) {
     const { params } = contex
+
+    const comments = await getComments() // get comments
+
+    const relativeComments = comments.filter(item => item.commentId === params?.eventId)
+
     const response = await fetch(`http://localhost:3030/api/event/get/${params?.eventId}`)
     const { success, error, message, data } = await response.json()
     if (success && data) {
         return {
-            props: { event: data },
+            props: {
+                event: data,
+                comments: relativeComments.length && relativeComments
+            },
             revalidate: 600 // seconds to regenerate pages
         }
     } else {

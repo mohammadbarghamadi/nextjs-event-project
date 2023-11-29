@@ -43,7 +43,7 @@ export default function EventBox({ event }: { event: EventModel }) {
             <div className="image-box">
                 <picture>
                     <Link href={`/events/${_id}`}>
-                        <Image src={`/${image.filepath}`} alt="" width={500} height={280}/>
+                        <Image className={CSS.image} src={`/${image.filepath}`} alt="" width={500} height={280}/>
                     </Link>
                 </picture>
                 {featuredHandler()}

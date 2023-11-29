@@ -23,14 +23,17 @@ export default function EventList(props: { events: EventModel[] }) {
             <div className="container">
                 <h2>تازه ترین رویدادها</h2>
             </div>
-            <Swiper
-                slidesPerView={3}
-                spaceBetween={20}
-                navigation
-                autoplay={true}
-            >
-                {eventList()}
-            </Swiper>
+            <div className="container">
+
+                <Swiper
+                    slidesPerView={3}
+                    spaceBetween={20}
+                    navigation
+                    autoplay={true}
+                >
+                    {eventList()}
+                </Swiper>
+            </div>
         </div>
     )
 }

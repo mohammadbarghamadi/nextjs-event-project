@@ -22,6 +22,8 @@
 
 .block img {
     object-fit: contain;
+    width: 196px;
+    height: 150px;
 }
 
 .footer :is(p,h3) {
