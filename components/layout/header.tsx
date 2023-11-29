@@ -1,13 +1,13 @@
-import HeaderCSSClass from "./header.module.css";
+import CSS from "./header.module.css";
 import Logo from "./logo";
 import Navigation from "./navigation";
 import UserSign from "./user";
 
 export default function Header() {
     return (
-        <header className={HeaderCSSClass.header}>
+        <header className={CSS.header}>
             <div className="container">
-                <div className={HeaderCSSClass.headerContainer}>
+                <div className={CSS.headerContainer}>
                     <Logo />
                     <Navigation />
                     <UserSign />

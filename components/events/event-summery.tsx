@@ -1,4 +1,4 @@
-import eventCSSClass from "./event.module.css"
+import CSS from "./event.module.css"
 import { EventModel } from "@/pages/events";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -39,7 +39,7 @@ export default function EventBox({ event }: { event: EventModel }) {
     }
 
     return (
-        <div key={_id} className={eventCSSClass.eventSummery}>
+        <div key={_id} className={CSS.eventSummery}>
             <div className="image-box">
                 <picture>
                     <Link href={`/events/${_id}`}>
@@ -48,7 +48,7 @@ export default function EventBox({ event }: { event: EventModel }) {
                 </picture>
                 {featuredHandler()}
             </div>
-            <div className={eventCSSClass.contentBox}>
+            <div className={CSS.contentBox}>
                 <div className="event-title">
                     <Link href={`/events/${_id}`}>
                         <h3>{title}</h3>

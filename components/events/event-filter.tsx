@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react"
-import FilterCSS from "./eventFilter.module.css"
+import CSS from "./event-filter.module.css"
 import { OrderInt } from "@/pages/events/[...slug]"
 
 export default function EventFilter(props: { setOrder: (value: OrderInt) => void }) {
@@ -16,7 +16,7 @@ export default function EventFilter(props: { setOrder: (value: OrderInt) => void
     }, [order])
 
     return (
-        <div className={FilterCSS.select}>
+        <div className={CSS.select}>
             <select name="sort" id="sort" defaultValue={"Default"} onChange={e => setOrder(e.target.value)}>
                 <option value="Default" disabled={true}>نمایش بر اساس</option>
                 <option value="date-asc">تاریخ صعودی</option>

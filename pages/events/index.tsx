@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import EventList from "@/components/events/event-list"
-import EventCssClass from "./index.module.css"
-import SlugCSS from "./slug.module.css"
+import CSS from "./slug.module.css"
+import EventCSS from "./index.module.css"
 import SearchEvent from "@/components/events/event-search"
 import EventFilter from "@/components/events/event-filter"
 import { OrderInt } from "./[...slug]"
@@ -71,14 +71,14 @@ export default function EventsPage(props: { events: EventModel[] }) {
     }, [searchString, order])
 
     return (
-        <div className={EventCssClass.eventPage}>
+        <div className={EventCSS.eventPage}>
             <Head>
                 <title>کلیه رویدادها - رویداد سیستم</title>
                 <meta name="description" content="برای مطلع شدن و بررسی همه رویدادها به این بخش مراجعه کنید تا کلیه رویدادهای ثبت شده در سایت را بررسی کنید" />
             </Head>
             <div className="container">
-                <div className={SlugCSS.filter}>
-                    <div className={SlugCSS.search}><SearchEvent setString={setSearchString} /></div>
+                <div className={CSS.filter}>
+                    <div className={CSS.search}><SearchEvent setString={setSearchString} /></div>
                     <EventFilter setOrder={setOrder} />
                 </div>
                 <EventList events={events} />

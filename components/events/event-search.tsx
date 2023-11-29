@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-import SearchCSS from "./eventSearch.module.css"
+import CSS from "./event-search.module.css"
 
 export default function SearchEvent(props: { setString: (string: string) => void }) {
 
@@ -16,7 +16,7 @@ export default function SearchEvent(props: { setString: (string: string) => void
 
     return (
         <form onSubmit={formHanlder}>
-            <div className={SearchCSS.searchInput}>
+            <div className={CSS.searchInput}>
                 <input
                     name="search"
                     id="search"

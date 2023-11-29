@@ -1,0 +1,32 @@
+.comment {
+    background-color: var(--bg-color-05);
+    padding: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputController {
+    flex-basis: 49%;
+    margin: 10px 0;
+}
+
+.inputController input {
+    border-bottom: 1px solid var(--bg-color-02);
+    background-color: var(--bg-color-05);
+}
+
+.inputController input:focus {
+    border-bottom: 1px solid var(--bg-color-00);
+}
+
+.inputController textarea {
+    border-bottom: 1px solid var(--bg-color-02);
+    background-color: var(--bg-color-05);
+}
+
+.inputController textarea:focus {
+    border-bottom: 1px solid var(--bg-color-00);
+}

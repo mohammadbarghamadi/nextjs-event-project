@@ -12,7 +12,7 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import EventDetailCSSClass from "./eventDetail.module.css"
+import CSS from "./event-detail.module.css"
 import Image from "next/image";
 
 export default function EventDetail(props: { event: EventModel }) {
@@ -53,8 +53,8 @@ export default function EventDetail(props: { event: EventModel }) {
     function isItFeatured() {
         if (event.featured) {
             return (
-                <div className={EventDetailCSSClass.featuredEvent}>
-                    <div className={EventDetailCSSClass.featuredFlag}>
+                <div className={CSS.featuredEvent}>
+                    <div className={CSS.featuredFlag}>
                         <FontAwesomeIcon icon={faFlag} />
                     </div>
                 </div>
@@ -63,21 +63,21 @@ export default function EventDetail(props: { event: EventModel }) {
     }
 
     return (
-        <div className={EventDetailCSSClass.event}>
+        <div className={CSS.event}>
             <div className="container">
 
-                <div className={EventDetailCSSClass.intro}>
-                    <div className={EventDetailCSSClass.eventImage}>
+                <div className={CSS.intro}>
+                    <div className={CSS.eventImage}>
                         <picture>
                             <Image src={"/" + event.image.filepath} alt={event.title} width={800} height={440} />
                             {/* <img src={"/" + event.image.filepath} alt={event.title} /> */}
                         </picture>
                     </div>
-                    <div className={`${EventDetailCSSClass.info}`}>
+                    <div className={`${CSS.info}`}>
 
                         {isItFeatured()}
 
-                        <div className={`${EventDetailCSSClass.infoContainer}`}>
+                        <div className={`${CSS.infoContainer}`}>
                             <div className="date">
                                 <FontAwesomeIcon icon={faCalendar} color="#00ADB5" />
                                 <span style={{ color: '#222', fontWeight: 700 }}> تاریخ برگذاری: </span>
@@ -121,7 +121,7 @@ export default function EventDetail(props: { event: EventModel }) {
                     </div>
                 </div>
 
-                <div className={EventDetailCSSClass.eventContent}>
+                <div className={CSS.eventContent}>
                     <h1>{event.title}</h1>
                     <p>{event.description}</p>
                 </div>

@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
-import SubCSS from "./index.module.css"
+import CSS from "./index.module.css"
 
 const Subscribe = () => {
 
@@ -22,7 +22,7 @@ const Subscribe = () => {
     }
 
     return (
-        <form className={SubCSS.subscribe} onSubmit={formHandler}>
+        <form className={CSS.subscribe} onSubmit={formHandler}>
             <div className="input-controller">
                 <input
                     type="email"
