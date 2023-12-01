@@ -1,5 +1,5 @@
 import { EventModel } from "."
-import { GetStaticProps, GetStaticPaths } from "next"
+import { GetStaticProps } from "next"
 import EventDetail from "@/components/events/event-detail"
 import Head from "next/head"
 import EventComment from "@/components/comment"
@@ -15,9 +15,12 @@ export default function SingleEventPage(props: { event: EventModel, comments: Co
                 <title>{event.title}</title>
                 <meta name="description" content={event.excerpt} />
             </Head>
+
             <EventDetail event={event} />
             <EventComment commentId={event._id} />
-            <CommentList comments={comments} />
+
+            {comments ? <CommentList comments={comments} /> : ""}
+
         </div>
     )
 }

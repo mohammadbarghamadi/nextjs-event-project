@@ -1,15 +1,14 @@
 import { CommentDataInt } from "."
-
+import CSS from "./comment-detail.module.css"
 
 function CommentDetail(props: { comment: CommentDataInt }) {
 
     const { comment} = props
 
     return (
-        <div className="comment-detail">
-            <div className="name">{comment.name}</div>
-            <div className="comment">{comment.comment}</div>
-            <button>پاسخ به {comment.name}</button>
+        <div className={CSS.detail}>
+            <div className={CSS.name}>{comment.name}</div>
+            <div className={CSS.comment}>{comment.comment}</div>
         </div>
     )
 }

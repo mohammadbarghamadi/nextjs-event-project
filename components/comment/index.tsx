@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import CommentForm from "./comment-form"
 import CSS from "./index.module.css"
 

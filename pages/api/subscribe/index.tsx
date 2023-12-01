@@ -1,6 +1,26 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import connectDB from "./db/connect";
-import SubModel from "./model/subscribe.model";
+
+import mongoose,{Document} from "mongoose";
+
+async function connectDB() {
+    const connect = await mongoose.connect("mongodb://127.0.0.1:27017/frontDB")
+    console.log("Connected to Database")
+}
+
+export interface SubInt extends Document {
+    name: string
+    email: string
+} 
+
+const subSchema = new mongoose.Schema<SubInt>({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }
+})
+
+const SubModel = mongoose.models.subscribers || mongoose.model('subscribers',subSchema)
 
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
