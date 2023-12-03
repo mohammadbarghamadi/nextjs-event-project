@@ -15,7 +15,8 @@ const subscriberSchema = new Schema<SubscriberSchemaInt>({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 });
 
