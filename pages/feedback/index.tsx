@@ -1,7 +1,8 @@
-import { FormEvent, useState } from "react"
-import { readWroteFeedbacks } from "../api/feedbacks/feedback"
+import { FormEvent, useEffect, useState } from "react"
+import { listFeedbacks } from "../api/feedbacks/list"
+import { FeedbackSchema } from "@/models/feedback.model"
 
-const Feedback = (props: { feedbacks: { name: string, email: string, message: string }[] }) => {
+const Feedback = (props: { feedbacks: FeedbackSchema[] }) => {
 
     const { feedbacks } = props
 
@@ -9,23 +10,36 @@ const Feedback = (props: { feedbacks: { name: string, email: string, message: st
 
     const [name, setName] = useState<string>("")
     const [email, setEmail] = useState<string>("")
-    const [message, setMessage] = useState<string>("")
+    const [description, setDescription] = useState<string>("")
+
+    const [successMessage, setSuccessMessage] = useState<string>("")
 
     function feedbackHandler(e: FormEvent) {
         e.preventDefault()
 
         const sendData = async () => {
-            const response = await fetch("/api/feedback", {
+            const response = await fetch("/api/feedbacks", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message })
+                body: JSON.stringify({ name, email, description })
             })
-            const data = await response.json()
+            const { success, error, message, data } = await response.json()
+            if (success && data) {
+                setName("")
+                setEmail("")
+                setDescription("")
+                setSuccessMessage("پیام شما با موفقیت ثبت شد.")
+            }
         }
 
         sendData()
-
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSuccessMessage("")
+        }, 5000)
+    }, [successMessage])
 
     return (
         <div className="feedback">
@@ -44,22 +58,25 @@ const Feedback = (props: { feedbacks: { name: string, email: string, message: st
                     </div>
 
                     <div className="input-controller">
-                        <label htmlFor="message">نام</label><br />
-                        <textarea name="message" id="message" value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                        <label htmlFor="description">پیام</label><br />
+                        <textarea name="description" id="description" value={description} onChange={e => setDescription(e.target.value)}></textarea>
                     </div>
 
                     <button>ثبت بازخورد</button>
                 </form>
+            </div>
+            <div className="message">
+                {successMessage ? successMessage : ""}
             </div>
 
             <div className="latest-feedbacks">
                 <div className="container">
                     <br />
                     <h2>فهرست بازخوردهای دریافتی:</h2>
-                    {feedbacks.map((item, index) => <div key={index} className="feedback">
+                    {feedbacks.length ? feedbacks.map((item, index) => <div key={index} className="feedback">
                         <h4>{item.name}</h4>
-                        <p>{item.message}</p>
-                    </div>)}
+                        <p>{item.description}</p>
+                    </div>) : ""}
                 </div>
             </div>
 
@@ -68,8 +85,11 @@ const Feedback = (props: { feedbacks: { name: string, email: string, message: st
 }
 
 export const getStaticProps = async () => {
-    const { feedbacks } = await readWroteFeedbacks()
-    return { props: { feedbacks } }
+
+    const feedbacks = await listFeedbacks()
+
+    console.log(feedbacks)
+    return { props: { feedbacks: feedbacks } }
 }
 
 export default Feedback

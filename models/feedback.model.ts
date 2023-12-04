@@ -1,7 +1,7 @@
 import { Document, Schema, models, model } from "mongoose";
 
 
-interface FeedbackSchema {
+export interface FeedbackSchema {
     name: string,
     email: string,
     description: string
