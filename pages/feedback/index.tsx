@@ -1,5 +1,4 @@
 import { FormEvent, useEffect, useState } from "react"
-import { listFeedbacks } from "../api/feedbacks/list"
 import { FeedbackSchema } from "@/models/feedback.model"
 
 const Feedback = (props: { feedbacks: FeedbackSchema[] }) => {
@@ -86,10 +85,15 @@ const Feedback = (props: { feedbacks: FeedbackSchema[] }) => {
 
 export const getStaticProps = async () => {
 
-    const feedbacks = await listFeedbacks()
+    const getFeedbacks = await fetch("/api/feedbacks/list", { method: "GET" })
+    const { success, error, data } = await getFeedbacks.json()
 
-    console.log(feedbacks)
-    return { props: { feedbacks: feedbacks } }
+    if (success && data) {
+        return { props: { feedbacks: data } }
+    }
+
+    return { props: { feedbacks: [] } }
+
 }
 
 export default Feedback

@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema, models, model } from "mongoose";
 
-interface CommentSchema {
+export interface CommentSchema {
     name: string,
     email: string,
     comment: string,
