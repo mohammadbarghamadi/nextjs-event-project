@@ -8,22 +8,22 @@ export interface CommentDataInt {
     comment: string
 }
 
-function EventComment(props: { commentId: string }) {
+function EventComment(props: { eventId: string }) {
 
-    const { commentId } = props
+    const { eventId } = props
     const [commentData, setCommentData] = useState<CommentDataInt>()
 
     useEffect(() => {
         async function submitComment() {
-            const response = await fetch('/api/comment', {
+            const response = await fetch('/api/comments', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ commentId, ...commentData })
+                body: JSON.stringify({ eventId, ...commentData })
             })
-            const data = await response.json()
-            console.log(data)
+            const { success, error, data } = await response.json()
+
         }
         if (commentData) submitComment()
     }, [commentData])

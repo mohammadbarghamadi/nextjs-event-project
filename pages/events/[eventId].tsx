@@ -9,6 +9,7 @@ import { getComments } from "../api/comments"
 
 export default function SingleEventPage(props: { event: EventModel, comments: CommentSchema[] }) {
     const { event, comments } = props
+
     return (
         <div className="">
             <Head>
@@ -17,7 +18,7 @@ export default function SingleEventPage(props: { event: EventModel, comments: Co
             </Head>
 
             <EventDetail event={event} />
-            <EventComment commentId={event._id} />
+            <EventComment eventId={event._id} />
 
             {comments ? <CommentList comments={comments} /> : ""}
 
@@ -41,14 +42,14 @@ export const getStaticProps: GetStaticProps = async function (contex) {
 
     const comments = await getComments(eventId)
 
-    const response = await fetch(`http://localhost:3030/api/event/get/${params?.eventId}`)
+    const response = await fetch(`http://localhost:3030/api/event/get/${eventId}`)
     const { success, error, message, data } = await response.json()
 
     if (success && data) {
         return {
             props: {
                 event: data,
-                comments: comments.length && comments
+                comments: comments.length && JSON.parse(JSON.stringify(comments))
             },
             revalidate: 600 // seconds to regenerate pages
         }

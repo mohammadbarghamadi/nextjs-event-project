@@ -35,6 +35,24 @@ const commentHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         }
     }
 
+    if (req.method === "POST") {
+
+        try {
+            await dbConnect()
+        } catch (e: any) {
+            return res.status(500).json({ success: false, error: e.message })
+        }
+
+        try {
+            const { name, email, comment, eventId } = req.body
+            const newComment = await CommentModel.create({ name, email, comment, eventId })
+            res.json({ success: true, data: newComment })
+        } catch (e: any) {
+            res.status(500).json({ success: false, error: e.message })
+        }
+
+    }
+
 }
 
 export default commentHandler
