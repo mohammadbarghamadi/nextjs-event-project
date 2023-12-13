@@ -3,8 +3,13 @@
     justify-content: flex-start;
 }
 
-.subscribe input {
-    width: 300px;
+.inputEmail {
+    width: 220px;
+}
+
+.inputName {
+    width: 150px;
+    border-left: 1px solid var(--bg-color-00);
 }
 
 .subscribe button {
