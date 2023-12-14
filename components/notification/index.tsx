@@ -7,17 +7,21 @@ export const Notification = (props: { success: boolean, message: string }) => {
 
     if (success) {
         return (
-            <div className={CSS.Fixed}>
-                <div className={CSS.success}>
-                    <p>{message}</p>
+            <div className={CSS.fixed}>
+                <div className={CSS.Fixed}>
+                    <div className={CSS.success}>
+                        <p>{message}</p>
+                    </div>
                 </div>
             </div>
         )
     } else {
         return (
-            <div className={CSS.Fixed}>
-                <div className={CSS.error}>
-                    <p>{message}</p>
+            <div className={CSS.fixed}>
+                <div className={CSS.Fixed}>
+                    <div className={CSS.error}>
+                        <p>{message}</p>
+                    </div>
                 </div>
             </div>
         )

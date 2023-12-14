@@ -1,5 +1,5 @@
-import { ReactNode, createContext, useState } from "react";
-
+import { ReactNode, Suspense, createContext, useEffect, useState } from "react";
+import Notification from "@/components/notification";
 const NotifyContext = createContext({
     success: false,
     message: "",
@@ -7,9 +7,9 @@ const NotifyContext = createContext({
     setMessage: (value: string) => { }
 })
 
-export const NotifyContextProvider = ({ children }: { children: ReactNode }) => {
-    const [success, setSuccess] = useState<boolean>()
-    const [message, setMessage] = useState<string>()
+export const NotifyProvider = ({ children }: { children: ReactNode }) => {
+    const [success, setSuccess] = useState<boolean>(false)
+    const [message, setMessage] = useState<string>("")
 
     const notification = {
         success,

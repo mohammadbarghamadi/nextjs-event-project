@@ -8,7 +8,7 @@ config.autoAddCss = false
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Footer from '@/components/layout/footer'
-import Notification from '@/components/notification'
+import { NotifyProvider } from '@/context/NotifyContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,9 +18,10 @@ export default function App({ Component, pageProps }: AppProps) {
           <title>رویداد سیستم</title>
           <meta name='viewport' content='initial-scale=1.0 width:device-width' />
         </Head>
-        <Notification />
-        <Component {...pageProps} />
-        <Footer/>
+        <NotifyProvider>
+          <Component {...pageProps} />
+        </NotifyProvider>
+        <Footer />
       </Layout>
     </AuthProvider>
   )

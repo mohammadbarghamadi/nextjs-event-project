@@ -1,9 +1,12 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useState, useContext } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import NotifyContext from "@/context/NotifyContext"
 import CSS from "./index.module.css"
 
 const Subscribe = () => {
+
+    const { setMessage, setSuccess } = useContext(NotifyContext)
 
     const [email, setEmail] = useState<string>("")
     const [name, setName] = useState<string>("")
@@ -20,6 +23,9 @@ const Subscribe = () => {
             if (success && data) {
                 setEmail("")
                 setName("")
+                setMessage("شما با موفقیت در خبرنامه عضو شدید")
+                setSuccess(true)
+            } else {
                 
             }
         }
